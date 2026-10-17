@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copy Trade SMV PRO — Estratégia híbrida com comunidade</title>
+<meta name="description" content="Copy Trade SMV PRO: estratégia híbrida com execução predominantemente automatizada pelo EA, operações manuais complementares, monitoramento contínuo e uma comunidade para acompanhar sua carteira.">
+<meta name="theme-color" content="#0B0B0D">
+<meta property="og:title" content="Copy Trade SMV PRO">
+<meta property="og:description" content="Mais estratégia para o seu dinheiro. Menos decisões no improviso.">
+<meta property="og:image" content="assets/logo-smv-pro.jpg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!--
+  VIBE: "Cofre Noturno"
+  Referência: a mesa de operações de um private bank às 23h — luz baixa, metal escovado, silêncio.
+  Emoção: Confiança.  Colisão: arte geométrica da raposa (linha dourada) + terminal de mercado (tipografia mono).
+  Nunca parecer: projeto cripto, promessa de dinheiro fácil, banco tradicional.
+  Assinatura: pulsos dourados percorrendo o fluxo de cópia (Estratégia → Plataforma → Sua conta).
+  Curinga: a raposa geométrica aparece em linha fina, como marca d'água que "observa" a página.
+-->
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.83 9.83 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.76-1.84-.2-.48-.41-.42-.56-.43h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9.5 10.5h5v3h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></g></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11M11 10.5V4.5a1.5 1.5 0 0 1 3 0v6M14 10.5V6a1.5 1.5 0 0 1 3 0v7.5c0 4-2.5 7-6.5 7-2.6 0-4-1.3-5.4-3.3L3.4 14.6a1.5 1.5 0 0 1 2.4-1.8L8 15"/></g></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12 18.4 5.6"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><path d="M15.5 4.9a3.2 3.2 0 0 1 0 6.2M17.5 14.7c1.9.6 3.1 2.3 3.5 4.8"/></g></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 2.8 8 12 13l9.2-5L12 3Z"/><path d="m2.8 12 9.2 5 9.2-5M2.8 16l9.2 5 9.2-5"/></g></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></g></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c.8-3.8 3.7-6 7.5-6s6.7 2.2 7.5 6"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.7 2.7L16 9.6"/></g></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></g></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3 2 20h20L12 3Z" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.4v.1"/></g></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="SMV PRO — início"><img src="assets/logo-smv-pro.jpg" alt="SMV PRO" width="120" height="61"></a>
+    <ul>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#comunidade">Comunidade</a></li>
+      <li><a href="#transparencia">Transparência</a></li>
+      <li><a href="#faq">Perguntas</a></li>
+    </ul>
+    <a class="btn btn-gold" href="https://chat.whatsapp.com/Ln5tlXqZ1qGDyKuhTqA6fg?mode=gi_t" target="_blank" rel="noopener" aria-label="Entrar na comunidade no WhatsApp"><svg><use href="#i-wa"/></svg><span>Entrar na comunidade</span></a>
+  </div>
+</header>
+
+<main id="topo">
+<!-- HERO -->
+<section class="hero">
+  <div class="gridlines"></div>
+  <img class="fox-mark" src="assets/fox.png" alt="" aria-hidden="true">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="mono eyebrow rv">Copy Trade SMV PRO · Estratégia híbrida</span>
+      <h1 class="rv d1" style="margin-top:22px">Mais <em>estratégia</em> para o seu dinheiro. <span class="dim">Menos decisões no improviso.</span></h1>
+      <p class="lead rv d2">Acompanhe uma estratégia de Copy Trade em que a maior parte da execução é feita pelo EA, com operações manuais complementares e monitoramento contínuo. E, quando precisar, conte com uma comunidade para acompanhar sua carteira.</p>
+      <div class="cta-row rv d3">
+        <a class="btn btn-gold beam" href="https://chat.whatsapp.com/Ln5tlXqZ1qGDyKuhTqA6fg?mode=gi_t" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Quero conhecer o Copy Trade</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/smvprotrader/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Ver @smvprotrader</a>
+      </div>
+      <p class="disclaimer-inline rv d4"><svg><use href="#i-alert"/></svg>Resultados variam conforme as condições de mercado. Não há garantia de rentabilidade e existe possibilidade de perdas.</p>
+    </div>
+
+    <div class="terminal rv d2" aria-label="Como a cópia das operações acontece">
+      <div class="term-head"><span class="mono"><span class="dot"></span>Fluxo de cópia</span><span class="mono" style="color:#6f6f76">SMV/PRO</span></div>
+      <div class="flow">
+        <div class="node">
+          <div class="ic"><svg><use href="#i-chip"/></svg></div>
+          <div><b>Estratégia SMV PRO</b><span>Execução predominante pelo EA, com atuação manual complementar.</span>
+            <div class="tags"><span class="tag g">EA</span><span class="tag">Manual</span><span class="tag">Monitorada</span></div></div>
+        </div>
+        <div class="link"><i></i></div>
+        <div class="node">
+          <div class="ic"><svg><use href="#i-layers"/></svg></div>
+          <div><b>Plataforma parceira</b><span>Gerenciamento de contas em parceria com a 4XC replica as operações.</span></div>
+        </div>
+        <div class="link"><i></i></div>
+        <div class="node you">
+          <div class="ic"><svg><use href="#i-user"/></svg></div>
+          <div><b>Sua conta</b><span>Você mantém o controle e acompanha as informações disponíveis na plataforma.</span></div>
+        </div>
+      </div>
+      <div class="term-foot"><span>+ Comunidade SMV PRO para dúvidas e acompanhamento</span><span class="mono" style="font-size:10.5px">Ilustrativo</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Execução predominantemente automatizada</span><span>Operações manuais complementares</span><span>Monitoramento contínuo</span><span>Comunidade para acompanhar a carteira</span><span>Você no controle da sua conta</span><span>Riscos explicados antes de decidir</span>
+    <span>Execução predominantemente automatizada</span><span>Operações manuais complementares</span><span>Monitoramento contínuo</span><span>Comunidade para acompanhar a carteira</span><span>Você no controle da sua conta</span><span>Riscos explicados antes de decidir</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="sec">
+  <div class="gridlines"></div>
+  <div class="wrap problem">
+    <div class="rv">
+      <span class="mono eyebrow">O ponto de partida</span>
+      <h2 style="margin-top:16px">Você não precisa acompanhar cada movimento do mercado sozinho.</h2>
+    </div>
+    <div class="rv d1">
+      <p class="big">Entre trabalho e compromissos, o mercado consome tempo e energia. Agir por impulso, <span class="gold">sem um plano claro</span>, torna tudo mais difícil.</p>
+      <p class="muted" style="margin-top:22px">O Copy Trade SMV PRO foi pensado para quem busca uma forma estruturada de acompanhar uma estratégia de negociação, com execução predominantemente automatizada e suporte de uma comunidade. Você mantém o controle da sua conta e acompanha as informações disponibilizadas pela plataforma, conforme suas funcionalidades e regras.</p>
+      <div class="pill-list">
+        <span class="pill"><s>Decisões no improviso</s></span>
+        <span class="pill"><s>Tela aberta o dia todo</s></span>
+        <span class="pill" style="color:var(--champagne);border-color:rgba(217,169,59,.4)">Estratégia com regras definidas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="como-funciona" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono eyebrow">Como funciona</span>
+      <h2>Cinco camadas trabalhando em conjunto.</h2>
+      <p class="lead">Copy trade é uma modalidade em que as operações de uma estratégia de referência são replicadas em outra conta por meio de uma plataforma. No SMV PRO, a proposta combina:</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span><h3>Execução automatizada</h3><p>O EA executa a maior parte das operações segundo os parâmetros da estratégia.</p></div>
+      <div class="step rv d1"><span class="n">02</span><h3>Atuação manual complementar</h3><p>Operações manuais complementam o EA, de acordo com critérios definidos pela equipe.</p></div>
+      <div class="step rv d2"><span class="n">03</span><h3>Monitoramento contínuo</h3><p>A estratégia é acompanhada e revisada de forma contínua.</p></div>
+      <div class="step rv d3"><span class="n">04</span><h3>Comunidade</h3><p>Canais de suporte e acompanhamento relacionados à sua carteira.</p></div>
+      <div class="step rv d4"><span class="n">05</span><h3>Plataforma parceira</h3><p>Gestão de conta por meio de plataforma associada à 4XC.</p></div>
+    </div>
+    <p class="note rv">A replicação pode depender de configurações, condições de mercado, conectividade, liquidez e regras da plataforma; por isso, os resultados podem diferir entre contas. O monitoramento não elimina riscos nem assegura resultados futuros.</p>
+  </div>
+</section>
+
+<!-- BENTO -->
+<section class="sec" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono eyebrow">O que você encontra</span>
+      <h2>Tecnologia com acompanhamento humano.</h2>
+      <p class="lead">A automação executa regras com consistência, mas não prevê o mercado nem impede perdas. Por isso a SMV PRO combina o EA com acompanhamento da estratégia e uma comunidade disponível para suporte.</p>
+    </div>
+    <div class="bento">
+      <article class="card c-a rv">
+        <div class="ic"><svg><use href="#i-chip"/></svg></div>
+        <h3>Uma estratégia híbrida, não um robô solto</h3>
+        <p>A execução é predominantemente automatizada, com operações manuais complementares e um processo de revisão contínuo por trás.</p>
+        <div class="split-bar" aria-hidden="true"><i class="ea"></i><i class="mn"></i><i class="mo"></i></div>
+        <div class="legend"><span><b style="background:var(--gold)"></b>EA · predominante</span><span><b style="background:var(--champagne)"></b>Manual · complementar</span><span><b style="background:var(--steel)"></b>Monitoramento</span></div>
+        <p class="small" style="color:#6f6f76;margin-top:10px">Representação conceitual; não indica proporção exata.</p>
+      </article>
+      <article class="card c-b rv d1">
+        <div class="ic"><svg><use href="#i-hand"/></svg></div>
+        <h3>Atuação manual</h3>
+        <p>Operações manuais complementam a atuação do EA, seguindo critérios e procedimentos da equipe.</p>
+      </article>
+      <article class="card c-c rv">
+        <div class="ic"><svg><use href="#i-radar"/></svg></div>
+        <h3>Monitoramento</h3>
+        <p>Acompanhamento contínuo e processo de revisão da estratégia.</p>
+      </article>
+      <article class="card c-d rv d1">
+        <div class="ic"><svg><use href="#i-users"/></svg></div>
+        <h3>Comunidade</h3>
+        <p>Um lugar para tirar dúvidas e acompanhar sua carteira junto de outros participantes.</p>
+      </article>
+      <article class="card c-e rv d2">
+        <div class="ic"><svg><use href="#i-doc"/></svg></div>
+        <h3>Informação clara</h3>
+        <p>Funcionamento, custos, riscos e histórico apresentados antes de você decidir.</p>
+      </article>
+    </div>
+
+    <div class="duo" style="margin-top:16px">
+      <div class="card rv">
+        <span class="label">O que o acompanhamento é</span>
+        <h3>Suporte para você entender e acompanhar</h3>
+        <ul class="check">
+          <li><svg><use href="#i-check"/></svg>Orientação sobre o funcionamento do serviço</li>
+          <li><svg><use href="#i-check"/></svg>Esclarecimento de dúvidas operacionais</li>
+          <li><svg><use href="#i-check"/></svg>Apoio para acompanhar sua carteira em comunidade</li>
+        </ul>
+      </div>
+      <div class="card rv d1">
+        <span class="label">O que ele não é</span>
+        <h3>Transparência sobre os limites</h3>
+        <ul class="check x">
+          <li><svg><use href="#i-minus"/></svg>Gestão individualizada da sua carteira</li>
+          <li><svg><use href="#i-minus"/></svg>Recomendação de investimento personalizada</li>
+          <li><svg><use href="#i-minus"/></svg>Garantia de rentabilidade ou atendimento em tempo real</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="sec" id="comunidade" style="padding-top:40px">
+  <div class="wrap">
+    <div class="community rv">
+      <div style="position:relative">
+        <span class="mono eyebrow">Comunidade SMV PRO</span>
+        <h2 style="margin:16px 0 18px">Uma comunidade para acompanhar sua jornada.</h2>
+        <p class="lead">Participar do SMV PRO significa ter onde buscar orientação sobre o serviço, esclarecer dúvidas operacionais e encontrar apoio para acompanhar sua carteira. Entre no grupo e converse com a equipe antes de tomar qualquer decisão.</p>
+        <div class="cta-row" style="margin-top:32px">
+          <a class="btn btn-gold" href="https://chat.whatsapp.com/Ln5tlXqZ1qGDyKuhTqA6fg?mode=gi_t" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Entrar na comunidade</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/smvprotrader/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Seguir no Instagram</a>
+        </div>
+      </div>
+      <div class="chat" aria-hidden="true">
+        <div class="bubble"><small>Participante</small>Como eu acompanho as operações que foram copiadas na minha conta?</div>
+        <div class="bubble r"><small>Equipe SMV PRO</small>Pela própria plataforma. Te mostramos onde ver posições e histórico, passo a passo.</div>
+        <div class="bubble"><small>Participante</small>E quais são os riscos e custos antes de começar?</div>
+        <div class="bubble r"><small>Equipe SMV PRO</small>Explicamos tudo antes da adesão: regras de cópia, custos e riscos.</div>
+        <p class="chat-cap">Conversa ilustrativa</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM + TRANSPARENCY (light) -->
+<section class="light sec" id="transparencia">
+  <div class="wrap">
+    <div class="platform">
+      <div class="rv">
+        <span class="mono eyebrow">Plataforma e conta</span>
+        <h2 style="margin:16px 0 18px">Sua conta, numa plataforma parceira.</h2>
+        <p class="lead">A operação é realizada por meio de uma plataforma de gerenciamento de contas utilizada em parceria com a 4XC.</p>
+        <div class="cta-row" style="margin-top:28px">
+          <a class="btn btn-dark" href="https://chat.whatsapp.com/Ln5tlXqZ1qGDyKuhTqA6fg?mode=gi_t" target="_blank" rel="noopener">Entender como funciona a plataforma<svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="box rv d1">
+        <h3>Antes de aderir, confira</h3>
+        <p>Quem mantém a conta, onde os recursos ficam custodiados, quais permissões são concedidas à plataforma e ao provedor da estratégia, como funcionam depósitos e saques, quais proteções se aplicam e quais são os custos. A parceria ou o uso de uma plataforma, por si só, não é garantia de segurança, proteção de capital ou rentabilidade.</p>
+      </div>
+    </div>
+
+    <div class="sec-head rv">
+      <span class="mono eyebrow">Transparência antes de decidir</span>
+      <h2>O que você deve poder consultar antes de começar.</h2>
+    </div>
+    <div class="tgrid">
+      <div class="titem rv"><span class="n">01</span><h3>Regras de cópia</h3><p>Parâmetros de risco e condições para interromper a replicação.</p></div>
+      <div class="titem rv d1"><span class="n">02</span><h3>Ativos e alavancagem</h3><p>Mercados envolvidos, alavancagem aplicável e possibilidade de perdas superiores ao esperado.</p></div>
+      <div class="titem rv d2"><span class="n">03</span><h3>Histórico de desempenho</h3><p>Período, metodologia, custos, moeda e drawdown. Resultados passados não garantem resultados futuros.</p></div>
+      <div class="titem rv"><span class="n">04</span><h3>Custos</h3><p>Taxas, spreads, comissões, custos da plataforma, remunerações e conflitos de interesse.</p></div>
+      <div class="titem rv d1"><span class="n">05</span><h3>Entidades envolvidas</h3><p>Jurisdições, autorizações e canais de reclamação.</p></div>
+      <div class="titem rv d2"><span class="n">06</span><h3>Procedimentos</h3><p>Depósito, saque, encerramento e tratamento de falhas técnicas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <span class="mono eyebrow">Perguntas frequentes</span>
+      <h2 style="margin:16px 0 18px">Respostas diretas.</h2>
+      <p class="muted">Ficou alguma dúvida? Pergunte direto para a equipe na comunidade.</p>
+      <a class="btn btn-ghost" style="margin-top:24px" href="https://chat.whatsapp.com/Ln5tlXqZ1qGDyKuhTqA6fg?mode=gi_t" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Falar com a equipe</a>
+    </div>
+    <div class="rv d1">
+      <details open><summary>O Copy Trade garante lucro?<span class="pm"></span></summary><p>Não. Não há garantia de rentabilidade. O mercado pode se mover contra a estratégia, e você pode perder parte ou todo o capital alocado, conforme os produtos e condições envolvidos.</p></details>
+      <details><summary>O que significa ser híbrido?<span class="pm"></span></summary><p>Significa que a maior parte das operações é executada pelo EA e que operações manuais atuam de forma complementar, segundo critérios definidos pela equipe. Os detalhes de proporção, critérios de intervenção e contingência são apresentados pela equipe SMV PRO.</p></details>
+      <details><summary>O EA é atualizado ou aprimorado?<span class="pm"></span></summary><p>A estratégia é monitorada e pode ser revisada. Mudanças não garantem melhor desempenho.</p></details>
+      <details><summary>Posso acompanhar ou interromper as operações?<span class="pm"></span></summary><p>Isso depende dos recursos e regras da plataforma. A equipe mostra na comunidade como consultar posições, pausar a cópia, encerrar operações e sacar recursos, além de eventuais prazos e limitações.</p></details>
+      <details><summary>A comunidade administra minha carteira?<span class="pm"></span></summary><p>Não. A comunidade oferece acompanhamento e suporte conforme o escopo do serviço. Ela não é gestão individual nem aconselhamento personalizado.</p></details>
+      <details><summary>Como funciona a parceria com a 4XC?<span class="pm"></span></summary><p>A operação é feita por meio de uma plataforma de gerenciamento de contas utilizada em parceria com a 4XC. Consulte os termos oficiais da plataforma e da corretora antes de aderir, e fale com a equipe para entender o papel de cada entidade.</p></details>
+      <details><summary>Quais são os custos?<span class="pm"></span></summary><p>Todos os custos aplicáveis (remuneração do serviço, spread, comissão, swap, conversão cambial e custos da plataforma, se houver) são apresentados pela equipe antes da adesão. Peça os detalhes na comunidade.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="gridlines"></div>
+  <div class="wrap">
+    <img class="fox rv" src="assets/fox.png" width="84" height="84" alt="" aria-hidden="true">
+    <span class="mono eyebrow rv" style="position:relative">Comece pelos detalhes</span>
+    <h2 class="rv d1" style="margin-top:16px">Entenda a estratégia antes de decidir.</h2>
+    <p class="lead rv d2">Conheça os riscos, os custos e as condições da plataforma. A adesão deve ser compatível com seus objetivos e com sua capacidade de suportar perdas.</p>
+    <div class="cta-row rv d3">
+      <a class="btn btn-gold beam" href="https://chat.whatsapp.com/Ln5tlXqZ1qGDyKuhTqA6fg?mode=gi_t" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Quero conhecer o Copy Trade SMV PRO</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/smvprotrader/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Acompanhar no Instagram</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- MANAGEMENT BAND -->
+<section class="mgmt" aria-label="Gestão SMV PRO">
+  <div class="wrap">
+    <span class="mono eyebrow rv">Gestão SMV PRO</span>
+    <figure class="rv d1"><img src="assets/gestao.jpg" alt="Integrante da gestão SMV PRO" width="640" height="640"></figure>
+    <blockquote class="rv d2">“Tecnologia executa. Pessoas acompanham. É essa combinação que sustenta a forma como conduzimos a estratégia.”</blockquote>
+    <div class="sig rv d3">
+      <img src="assets/fox.png" alt="" aria-hidden="true">
+      <div><b style="display:block;font-size:15px">Equipe de gestão</b><span class="small muted">SMV PRO · Copy Trade</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <a class="brand" href="#topo"><img src="assets/logo-smv-pro.jpg" alt="SMV PRO" width="90" height="46"></a>
+      <div class="socials">
+        <a href="https://www.instagram.com/smvprotrader/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@smvprotrader</a>
+        <a href="https://chat.whatsapp.com/Ln5tlXqZ1qGDyKuhTqA6fg?mode=gi_t" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Comunidade</a>
+      </div>
+    </div>
+    <div class="risk">
+      <h4>Aviso de risco</h4>
+      <p>Copy trade e operações automatizadas envolvem risco de mercado, riscos operacionais e tecnológicos e podem resultar em perdas. O desempenho passado, simulado ou real, não é garantia de desempenho futuro. Resultados podem variar entre contas e podem ser afetados por latência, conexão, liquidez, execução, custos, configurações e condições de mercado. Invista somente após compreender os riscos e verificar se o serviço e os intermediários estão devidamente autorizados para as atividades oferecidas. Em caso de dúvida, procure orientação profissional independente.</p>
+    </div>
+    <div class="f-bot"><span>© <span id="y">2026</span> SMV PRO. Todos os direitos reservados.</span><span>Este conteúdo é informativo e não constitui recomendação de investimento.</span></div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://chat.whatsapp.com/Ln5tlXqZ1qGDyKuhTqA6fg?mode=gi_t" target="_blank" rel="noopener" aria-label="Entrar na comunidade no WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>
