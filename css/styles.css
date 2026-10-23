@@ -68,8 +68,6 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;o
 .hero h1 .dim{color:var(--steel);font-weight:600}
 .hero .lead{margin:24px 0 36px;max-width:560px}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-.disclaimer-inline{margin-top:22px;color:#8d8d94;font-size:13px;line-height:20px;max-width:520px;display:flex;gap:10px}
-.disclaimer-inline svg{flex:none;width:16px;height:16px;margin-top:2px;color:var(--gold-300)}
 
 /* copy-flow terminal */
 .terminal{background:linear-gradient(180deg,#17171a,#111114);border:1px solid var(--graphite);border-radius:14px;padding:22px;position:relative;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04)}
