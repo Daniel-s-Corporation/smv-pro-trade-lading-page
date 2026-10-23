@@ -5,5 +5,9 @@
   els.forEach(function(e){io.observe(e)});
   }
   var fw=document.querySelector('.float-wa');window.addEventListener('scroll',function(){fw.classList.toggle('show',window.scrollY>700)},{passive:true});
+  var tv=document.getElementById('t-vid');
+  if(tv){var tf=tv.parentNode;
+    tf.querySelector('.t-play').addEventListener('click',function(){tv.controls=true;tf.classList.add('playing');tv.play()});
+  }
   document.getElementById('y').textContent=new Date().getFullYear();
 })();
