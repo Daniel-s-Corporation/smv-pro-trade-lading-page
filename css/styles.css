@@ -294,12 +294,3 @@ footer{background:var(--onyx);border-top:1px solid var(--graphite);padding:56px 
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none;filter:none}
 }
-
-/* aviso de cookies */
-.cc-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;max-width:560px;margin:0 auto;padding:18px 20px;border-radius:var(--r);background:var(--carbon);border:1px solid var(--graphite);box-shadow:0 20px 50px -20px rgba(0,0,0,.8);display:flex;flex-direction:column;gap:14px}
-.cc-banner[hidden]{display:none}
-.cc-banner p{font-size:14px;line-height:22px;color:var(--steel)}
-.cc-actions{display:flex;gap:10px;justify-content:flex-end}
-.cc-actions .btn{height:42px;padding:0 20px;font-size:14px}
-.cc-link{background:none;border:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;padding:0}
-.cc-link:hover{color:var(--champagne)}
