@@ -1,0 +1,16 @@
+// Roda ANTES do snippet do GTM: define o consentimento padrão (LGPD) e limita o que o container pode executar.
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+(function(){
+  var saved=null;try{saved=localStorage.getItem('smv-consent')}catch(e){}
+  // análise só com aceite; publicidade sempre negada (o site não usa anúncios)
+  gtag('consent','default',{
+    analytics_storage:saved==='granted'?'granted':'denied',
+    ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',
+    functionality_storage:'granted',security_storage:'granted',
+    wait_for_update:500
+  });
+  gtag('set','ads_data_redaction',true);
+  // bloqueia tags de HTML/JS personalizado: mesmo com a conta do GTM comprometida, ninguém injeta script arbitrário no site
+  dataLayer.push({'gtm.blocklist':['customScripts']});
+})();

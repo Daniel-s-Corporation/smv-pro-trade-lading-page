@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/consent.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MH2JNZZM');</script>
+<!-- End Google Tag Manager -->
 <title>FAQ — Copy Trade SMV PRO</title>
 <meta name="description" content="Perguntas frequentes sobre o Copy Trade SMV PRO: funcionamento, riscos, controle das operações, comunidade, plataforma 4XC e custos. Com vídeos passo a passo.">
 <meta name="theme-color" content="#0B0B0D">
@@ -18,6 +26,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body class="faq-page">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MH2JNZZM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- SVG sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -38,7 +50,7 @@
   <symbol id="i-video" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5.5" width="13" height="13" rx="2.5"/><path d="m16 10 5-3v10l-5-3"/></g></symbol>
 </svg>
 
-<header class="nav">
+<header class="nav" data-section="nav">
   <div class="wrap">
     <a class="brand" href="./" aria-label="SMV PRO — voltar para a página inicial"><img src="assets/logo-smv-pro.jpg" alt="SMV PRO" width="120" height="61"></a>
     <ul>
@@ -53,7 +65,7 @@
 
 <main id="topo">
 <!-- HERO + SEARCH -->
-<section class="fq-hero">
+<section class="fq-hero" data-section="faq_hero">
   <div class="gridlines"></div>
   <img class="fq-logo-bg" src="assets/logo-smv-pro.jpg" alt="" aria-hidden="true">
   <div class="wrap">
@@ -62,7 +74,7 @@
     <h1 class="rv d1">Perguntas <em>frequentes</em>.</h1>
     <p class="lead rv d2">Tudo o que você precisa saber sobre o Copy Trade SMV PRO, organizado por tema. Pesquise ou navegue pelas categorias.</p>
 
-    <form class="fq-search rv d3" role="search" onsubmit="return false">
+    <form class="fq-search rv d3" role="search">
       <label for="fq-q" class="sr-only">Pesquisar nas perguntas e respostas</label>
       <svg class="ic"><use href="#i-search"/></svg>
       <input id="fq-q" type="search" placeholder="Pesquise: saque, custos, 4XC, riscos…" autocomplete="off" spellcheck="false">
@@ -83,7 +95,7 @@
 </section>
 
 <!-- VIDEO GUIDES -->
-<section class="fq-guides" aria-labelledby="guides-t">
+<section class="fq-guides" data-section="faq_videos" aria-labelledby="guides-t">
   <div class="wrap">
     <div class="fq-guides-head rv">
       <span class="mono eyebrow" id="guides-t">Passo a passo em vídeo</span>
@@ -99,9 +111,9 @@
 </section>
 
 <!-- FAQ BODY -->
-<section class="fq-body">
+<section class="fq-body" data-section="faq_conteudo">
   <div class="wrap fq-layout">
-    <aside class="fq-side" aria-label="Navegação por categoria">
+    <aside class="fq-side" data-section="faq_menu_lateral" aria-label="Navegação por categoria">
       <span class="mono fq-side-t">Categorias</span>
       <ol>
         <li><a href="#sobre"><span class="mono">01</span>Sobre o Copy Trade</a></li>
@@ -117,7 +129,7 @@
     <div class="fq-content">
 
       <!-- 01 -->
-      <section class="fq-cat" id="sobre" aria-labelledby="sobre-t">
+      <section class="fq-cat" id="sobre" data-section="faq_sobre" aria-labelledby="sobre-t">
         <header class="fq-cat-head rv">
           <span class="fq-cat-ic"><svg><use href="#i-chip"/></svg></span>
           <div><span class="mono fq-cat-n">01</span><h2 id="sobre-t">Sobre o Copy Trade</h2><p class="muted">Conceitos básicos e funcionamento do serviço.</p></div>
@@ -132,7 +144,7 @@
             <p>Na SMV PRO você conecta sua conta de negociação à nossa estratégia. A partir daí, nosso sistema automatizado executa as ordens conforme a nossa estratégia principal, eliminando a necessidade de você acompanhar o mercado minuto a minuto.</p>
             <figure class="fq-video" style="--ar:3/2">
               <div class="fq-frame">
-                <video src="assets/video/faq/03-assinar-copy-trade-smvpro.mp4" poster="assets/video/faq/03-assinar-copy-trade-smvpro.jpg" preload="none" playsinline></video>
+                <video data-title="03 Assinar o Copy Trade" src="assets/video/faq/03-assinar-copy-trade-smvpro.mp4" poster="assets/video/faq/03-assinar-copy-trade-smvpro.jpg" preload="none" playsinline></video>
                 <button type="button" class="fq-play" aria-label="Assistir: como assinar o Copy Trade SMV PRO"><span><svg><use href="#i-play"/></svg></span></button>
               </div>
               <figcaption><span class="mono">Passo 03 · 03:49</span>Como assinar o Copy Trade e seguir a estratégia SMV PRO na plataforma.</figcaption>
@@ -146,7 +158,7 @@
       </section>
 
       <!-- 02 -->
-      <section class="fq-cat" id="riscos" aria-labelledby="riscos-t">
+      <section class="fq-cat" id="riscos" data-section="faq_riscos" aria-labelledby="riscos-t">
         <header class="fq-cat-head rv">
           <span class="fq-cat-ic"><svg><use href="#i-alert"/></svg></span>
           <div><span class="mono fq-cat-n">02</span><h2 id="riscos-t">Riscos e rentabilidade</h2><p class="muted">Expectativas de retorno e riscos financeiros.</p></div>
@@ -166,7 +178,7 @@
       </section>
 
       <!-- 03 -->
-      <section class="fq-cat" id="operacoes" aria-labelledby="operacoes-t">
+      <section class="fq-cat" id="operacoes" data-section="faq_operacoes" aria-labelledby="operacoes-t">
         <header class="fq-cat-head rv">
           <span class="fq-cat-ic"><svg><use href="#i-radar"/></svg></span>
           <div><span class="mono fq-cat-n">03</span><h2 id="operacoes-t">Funcionamento e controle das operações</h2><p class="muted">Execução das estratégias e autonomia do cliente.</p></div>
@@ -189,7 +201,7 @@
             <p>Os saques são realizados diretamente através da corretora onde sua conta está custodiada. A SMV PRO não detém a custódia do seu capital; portanto, você solicita o saque na plataforma da corretora seguindo as regras e prazos de processamento deles.</p>
             <figure class="fq-video" style="--ar:3/2">
               <div class="fq-frame">
-                <video src="assets/video/faq/04-duvida-saques-depositos.mp4" poster="assets/video/faq/04-duvida-saques-depositos.jpg" preload="none" playsinline></video>
+                <video data-title="04 Saques e depositos" src="assets/video/faq/04-duvida-saques-depositos.mp4" poster="assets/video/faq/04-duvida-saques-depositos.jpg" preload="none" playsinline></video>
                 <button type="button" class="fq-play" aria-label="Assistir: como fazer saques e depósitos"><span><svg><use href="#i-play"/></svg></span></button>
               </div>
               <figcaption><span class="mono">Passo 04 · 05:20</span>Como solicitar saques e fazer depósitos na plataforma da corretora.</figcaption>
@@ -199,7 +211,7 @@
       </section>
 
       <!-- 04 -->
-      <section class="fq-cat" id="comunidade-suporte" aria-labelledby="comunidade-t">
+      <section class="fq-cat" id="comunidade-suporte" data-section="faq_comunidade_suporte" aria-labelledby="comunidade-t">
         <header class="fq-cat-head rv">
           <span class="fq-cat-ic"><svg><use href="#i-users"/></svg></span>
           <div><span class="mono fq-cat-n">04</span><h2 id="comunidade-t">Comunidade, suporte e responsabilidades</h2><p class="muted">Papel da equipe e limites do acompanhamento.</p></div>
@@ -219,7 +231,7 @@
       </section>
 
       <!-- 05 -->
-      <section class="fq-cat" id="plataforma" aria-labelledby="plataforma-t">
+      <section class="fq-cat" id="plataforma" data-section="faq_plataforma" aria-labelledby="plataforma-t">
         <header class="fq-cat-head rv">
           <span class="fq-cat-ic"><svg><use href="#i-layers"/></svg></span>
           <div><span class="mono fq-cat-n">05</span><h2 id="plataforma-t">Plataforma, corretora e parceria</h2><p class="muted">Infraestrutura utilizada e responsabilidades das entidades envolvidas.</p></div>
@@ -230,7 +242,7 @@
             <p>A 4XC é a corretora parceira onde as operações são executadas. Utilizamos a infraestrutura deles para garantir a velocidade e a confiabilidade necessárias para a replicação das ordens.</p>
             <figure class="fq-video" style="--ar:16/9">
               <div class="fq-frame">
-                <video src="assets/video/faq/01-abrir-conta-4XC.mp4" poster="assets/video/faq/01-abrir-conta-4XC.jpg" preload="none" playsinline></video>
+                <video data-title="01 Abrir conta na 4XC" src="assets/video/faq/01-abrir-conta-4XC.mp4" poster="assets/video/faq/01-abrir-conta-4XC.jpg" preload="none" playsinline></video>
                 <button type="button" class="fq-play" aria-label="Assistir: como abrir conta na 4XC"><span><svg><use href="#i-play"/></svg></span></button>
               </div>
               <figcaption><span class="mono">Passo 01 · 06:20</span>Como abrir sua conta na 4XC, aceitar os termos e enviar os documentos de verificação.</figcaption>
@@ -243,7 +255,7 @@
             <p>A corretora (4XC) é responsável pela custódia do seu dinheiro, execução das ordens e manutenção da liquidez. A plataforma de copy trade atua como a ponte tecnológica que conecta a estratégia da SMV PRO à sua conta na corretora.</p>
             <figure class="fq-video" style="--ar:3/2">
               <div class="fq-frame">
-                <video src="assets/video/faq/02-abrir-conta-cents.mp4" poster="assets/video/faq/02-abrir-conta-cents.jpg" preload="none" playsinline></video>
+                <video data-title="02 Criar conta e depositar" src="assets/video/faq/02-abrir-conta-cents.mp4" poster="assets/video/faq/02-abrir-conta-cents.jpg" preload="none" playsinline></video>
                 <button type="button" class="fq-play" aria-label="Assistir: como criar a conta de negociação e depositar"><span><svg><use href="#i-play"/></svg></span></button>
               </div>
               <figcaption><span class="mono">Passo 02 · 06:20</span>Como criar a conta de negociação (Cents) na corretora e fazer o primeiro depósito.</figcaption>
@@ -257,7 +269,7 @@
       </section>
 
       <!-- 06 -->
-      <section class="fq-cat" id="custos" aria-labelledby="custos-t">
+      <section class="fq-cat" id="custos" data-section="faq_custos" aria-labelledby="custos-t">
         <header class="fq-cat-head rv">
           <span class="fq-cat-ic"><svg><use href="#i-coins"/></svg></span>
           <div><span class="mono fq-cat-n">06</span><h2 id="custos-t">Custos e condições financeiras</h2><p class="muted">Taxas, despesas operacionais e condições de adesão.</p></div>
@@ -280,7 +292,7 @@
         </div>
       </section>
 
-      <div class="fq-empty" hidden>
+      <div class="fq-empty" data-section="faq_sem_resultado" hidden>
         <svg><use href="#i-search"/></svg>
         <h3>Nenhuma pergunta encontrada.</h3>
         <p class="muted">Tente outra palavra ou pergunte direto para a equipe na comunidade.</p>
@@ -294,7 +306,7 @@
 </section>
 
 <!-- FINAL CTA -->
-<section class="final">
+<section class="final" data-section="cta_final">
   <div class="gridlines"></div>
   <div class="wrap">
     <img class="fox rv" src="assets/fox.png" width="84" height="84" alt="" aria-hidden="true">
@@ -309,7 +321,7 @@
 </section>
 </main>
 
-<footer>
+<footer data-section="rodape">
   <div class="wrap">
     <div class="f-top">
       <a class="brand" href="./"><img src="assets/logo-smv-pro.jpg" alt="SMV PRO" width="90" height="46"></a>
@@ -322,13 +334,14 @@
       <h4>Aviso de risco</h4>
       <p>Copy trade e operações automatizadas envolvem risco de mercado, riscos operacionais e tecnológicos e podem resultar em perdas. O desempenho passado, simulado ou real, não é garantia de desempenho futuro. Resultados podem variar entre contas e podem ser afetados por latência, conexão, liquidez, execução, custos, configurações e condições de mercado. Invista somente após compreender os riscos e verificar se o serviço e os intermediários estão devidamente autorizados para as atividades oferecidas. Em caso de dúvida, procure orientação profissional independente.</p>
     </div>
-    <div class="f-bot"><span>© <span id="y">2026</span> SMV PRO. Todos os direitos reservados.</span><span>Este conteúdo é informativo e não constitui recomendação de investimento.</span></div>
+    <div class="f-bot"><span>© <span id="y">2026</span> SMV PRO. Todos os direitos reservados.</span><span>Este conteúdo é informativo e não constitui recomendação de investimento.</span><button type="button" class="cc-link" data-consent-open>Preferências de cookies</button></div>
   </div>
 </footer>
 
-<a class="float-wa" href="https://chat.whatsapp.com/ECbBBKMobC15VnxsKSxElW?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener" aria-label="Entrar na comunidade no WhatsApp"><svg><use href="#i-wa"/></svg></a>
+<a class="float-wa" data-section="botao_flutuante" href="https://chat.whatsapp.com/ECbBBKMobC15VnxsKSxElW?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener" aria-label="Entrar na comunidade no WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
 <script src="js/app.js" defer></script>
 <script src="js/faq/scripts.js" defer></script>
+<script src="js/analytics.js" defer></script>
 </body>
 </html>
