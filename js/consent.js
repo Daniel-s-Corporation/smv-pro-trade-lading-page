@@ -1,4 +1,4 @@
-// Roda ANTES do snippet do GTM: define o consentimento padrão (LGPD) e limita o que o container pode executar.
+// Roda ANTES da tag do Google: define o consentimento padrão (LGPD).
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 (function(){
@@ -11,6 +11,4 @@ function gtag(){dataLayer.push(arguments)}
     wait_for_update:500
   });
   gtag('set','ads_data_redaction',true);
-  // bloqueia tags de HTML/JS personalizado: mesmo com a conta do GTM comprometida, ninguém injeta script arbitrário no site
-  dataLayer.push({'gtm.blocklist':['customScripts']});
 })();

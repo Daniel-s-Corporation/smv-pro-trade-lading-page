@@ -1,7 +1,6 @@
-// Eventos para o GTM via dataLayer. Nunca envia dados pessoais nem o link do convite do WhatsApp.
+// Eventos para o Google Analytics (gtag). Nunca envia dados pessoais nem o link do convite do WhatsApp.
 (function(){
-  window.dataLayer=window.dataLayer||[];
-  function track(ev,params){var o={event:ev};for(var k in params)o[k]=params[k];dataLayer.push(o)}
+  function track(ev,params){if(typeof gtag==='function')gtag('event',ev,params||{})}
   function clean(s,max){return (s||'').replace(/\s+/g,' ').trim().slice(0,max||80)}
   function sectionOf(el){var s=el.closest('[data-section]');return s?s.getAttribute('data-section'):'outra'}
 
@@ -75,7 +74,6 @@
   function setChoice(v){
     try{localStorage.setItem('smv-consent',v)}catch(e){}
     gtag('consent','update',{analytics_storage:v});
-    track('consent_update',{analytics_storage:v});
   }
   var banner;
   function showBanner(){
