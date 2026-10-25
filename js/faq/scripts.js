@@ -76,6 +76,7 @@
   }
 
   var timer;
+  form.addEventListener('submit',function(e){e.preventDefault()});
   input.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(function(){search(input.value)},120)});
   function clear(){input.value='';search('');input.focus()}
   document.querySelector('.fq-clear').addEventListener('click',clear);
