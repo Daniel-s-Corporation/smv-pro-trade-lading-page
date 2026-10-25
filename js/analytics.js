@@ -5,7 +5,7 @@
   function sectionOf(el){var s=el.closest('[data-section]');return s?s.getAttribute('data-section'):'outra'}
 
   // ---------- cliques em botões e links ----------
-  var IGNORE='.fq-item h3 button,.t-play,.fq-play,summary,.cc-banner button';
+  var IGNORE='.fq-item h3 button,.t-play,.fq-play,summary';
   document.addEventListener('click',function(e){
     var el=e.target.closest('a,button');
     if(!el||el.matches(IGNORE))return;
@@ -69,22 +69,4 @@
     },1500);
   });
 
-  // ---------- aviso de cookies (LGPD) ----------
-  function choice(){try{return localStorage.getItem('smv-consent')}catch(e){return null}}
-  function setChoice(v){
-    try{localStorage.setItem('smv-consent',v)}catch(e){}
-    gtag('consent','update',{analytics_storage:v});
-  }
-  var banner;
-  function showBanner(){
-    if(banner){banner.hidden=false;return}
-    banner=document.createElement('div');
-    banner.className='cc-banner';banner.setAttribute('role','dialog');banner.setAttribute('aria-label','Preferências de cookies');
-    banner.innerHTML='<p>Usamos cookies de análise para entender como o site é usado e melhorar a experiência. Nenhum dado é usado para anúncios.</p>'+
-      '<div class="cc-actions"><button type="button" class="btn btn-ghost" data-v="denied">Recusar</button><button type="button" class="btn btn-gold" data-v="granted">Aceitar</button></div>';
-    banner.addEventListener('click',function(e){var b=e.target.closest('button[data-v]');if(b){setChoice(b.getAttribute('data-v'));banner.hidden=true}});
-    document.body.appendChild(banner);
-  }
-  if(!choice())showBanner();
-  document.querySelectorAll('[data-consent-open]').forEach(function(b){b.addEventListener('click',showBanner)});
 })();
