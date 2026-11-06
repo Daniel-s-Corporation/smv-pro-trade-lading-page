@@ -224,9 +224,7 @@ details p{color:var(--steel);padding:0 48px 24px 0;font-size:16px;line-height:26
 .mgmt{border-top:1px solid var(--graphite);background:var(--carbon);padding:96px 0;position:relative;overflow:hidden}
 .mgmt::before{content:"";position:absolute;left:50%;top:38%;width:760px;height:760px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(217,169,59,.12),transparent);pointer-events:none}
 .mgmt .wrap{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
-.mgmt figure{position:relative;width:260px;aspect-ratio:1;border-radius:50%;overflow:hidden;margin:28px auto 32px;border:1px solid rgba(217,169,59,.45);box-shadow:0 0 0 10px rgba(217,169,59,.05),0 30px 60px -20px rgba(0,0,0,.8)}
-.mgmt figure img{width:100%;height:100%;object-fit:cover;object-position:center}
-.mgmt blockquote{font-size:26px;line-height:36px;font-weight:600;letter-spacing:-.3px;max-width:720px}
+.mgmt blockquote{margin-top:24px;font-size:26px;line-height:36px;font-weight:600;letter-spacing:-.3px;max-width:720px}
 .mgmt .sig{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:22px;border-top:1px solid var(--graphite);text-align:left}
 .mgmt .sig img{width:42px;mix-blend-mode:lighten}
 
@@ -271,7 +269,6 @@ footer{background:var(--onyx);border-top:1px solid var(--graphite);padding:56px 
   .community{padding:32px 22px}
   .tgrid{grid-template-columns:1fr}
   .mgmt{padding:72px 0}
-  .mgmt figure{width:200px}
   .mgmt blockquote{font-size:20px;line-height:30px}
   .float-wa{display:grid}
   .platform{margin-bottom:64px}
